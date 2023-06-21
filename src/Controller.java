@@ -1,37 +1,21 @@
 import com.knek.TkeyClient;
 import com.knek.UDI;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
-
-import java.awt.event.ActionEvent;
 import java.io.File;
 
 public class Controller {
-    @FXML
-    private Button button1;
-    @FXML
-    private Button button2;
+
     @FXML
     private Button button3;
     @FXML
-    private Button button4;
-    @FXML
-    private Button button5;
-    @FXML
-    private Button button6;
-    @FXML
     private TextArea textBox;
-
     private String name = "";
-
     private Boolean hasFile = false;
-
     private Boolean connected = false;
-
     private Boolean locked = false;
 
     @FXML
@@ -93,11 +77,13 @@ public class Controller {
 
     @FXML
     private void button4Clicked() throws Exception {
-        if(!locked){
+        if(!locked && connected){
             UDI udi = TkeyClient.getUDI();
             textBox.appendText("TKey UDI: 0x0" + Integer.toHexString(udi.vendorID()) + "0" + Integer.toHexString(udi.udi()[0]) + "00000" + Integer.toHexString(udi.serial()) + "\n");
             textBox.appendText("Vendor ID: " + Integer.toHexString(udi.vendorID()) + " Product ID: " + udi.productID() + " Product Rev: " + udi.productRevision() + "\n");
             TkeyClient.clearIOFull();
+        } else if(!connected){
+            textBox.appendText("TKey connection not found! \n");
         }
         else{
             textBox.appendText("Cannot get UDI if app has been loaded to device. Please reset the TKey first! \n");

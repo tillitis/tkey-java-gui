@@ -16,7 +16,7 @@ public class Main extends Application {
         primaryStage.setTitle("TKey GUI Client");
         primaryStage.getIcons().add(new Image("file:ant.png"));
         Scene scene = new Scene(root, 600, 600);
-        primaryStage.setTitle("JavaFX Window");
+        primaryStage.setTitle("TKey GUI Client");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
