@@ -12,7 +12,7 @@
 
 .text-area{
     -fx-pref-width: 580;
-    -fx-pref-height: 300;
+    -fx-pref-height: 600;
     -fx-background-color: #434343;
     -fx-text-fill: #FFFFFF; /* white text */
     -fx-border-radius: 20; /* rounded border */

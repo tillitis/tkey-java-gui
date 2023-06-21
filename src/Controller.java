@@ -1,4 +1,5 @@
 import com.knek.TkeyClient;
+import com.knek.UDI;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -25,10 +26,13 @@ public class Controller {
     @FXML
     private TextArea textBox;
 
-
     private String name = "";
 
+    private Boolean hasFile = false;
+
     private Boolean connected = false;
+
+    private Boolean locked = false;
 
     @FXML
     private void button1Clicked() throws Exception {
@@ -48,22 +52,27 @@ public class Controller {
             textBox.appendText("Failed to connect!" + "\n");
             TkeyClient.close();
             connected = false;
-            TkeyClient.reconnect();
             System.out.println(TkeyClient.getHasCon());
+            TkeyClient.reconnect();
         }
     }
 
+    /**
+     * Name is cached after first retrieval, due to bug which occurs if name is retrieved from
+     * TKey several times over.
+     */
     @FXML
-    private void button2Clicked(){
-        try{
-            if(!name.equals("")){
-                textBox.appendText("Name & Version: " + name + "\n");
-            }else{
-                name = TkeyClient.getNameVersion();
-                textBox.appendText("Name & Version: " + name + "\n");
-            }
-        }catch (Exception e){
-            textBox.appendText("Failed to get name! Have you connected to the TKey first?" + "\n");
+    private void button2Clicked() throws Exception {
+        if(!name.equals("")){
+                textBox.appendText("TKey name and version: " + name + "\n");
+        }else if(!locked && connected){
+            name = TkeyClient.getNameVersion();
+            textBox.appendText("TKey name and version: " + name + "\n");
+        }else if(!connected){
+            textBox.appendText("TKey connection not found! \n");
+        }
+        else{
+            textBox.appendText("Cannot get name if app has been loaded to device. Please reset the TKey first! \n");
         }
     }
 
@@ -71,36 +80,40 @@ public class Controller {
     private void button3Clicked() {
         FileChooser fileChooser = new FileChooser();
 
-        // Get the Stage from the ActionEvent source
         Window stage = button3.getScene().getWindow();
-
-        // Show open file dialog
         File file = fileChooser.showOpenDialog(stage);
 
         if (file != null) {
             String filePath = file.getAbsolutePath();
             Main.setFilePath(filePath);
-            textBox.appendText("File found. Click 'Load App' to load it to the Tkey" + "\n");
+            textBox.appendText("Click 'Load App' to load it to the TKey \n");
+            hasFile = true;
         }
     }
 
     @FXML
-    private void button4Clicked() {
-        textBox.setText("Button 4 clicked!");
+    private void button4Clicked() throws Exception {
+        if(!locked){
+            UDI udi = TkeyClient.getUDI();
+            textBox.appendText("TKey UDI: 0x0" + Integer.toHexString(udi.vendorID()) + "0" + Integer.toHexString(udi.udi()[0]) + "00000" + Integer.toHexString(udi.serial()) + "\n");
+            textBox.appendText("Vendor ID: " + Integer.toHexString(udi.vendorID()) + " Product ID: " + udi.productID() + " Product Rev: " + udi.productRevision() + "\n");
+            TkeyClient.clearIOFull();
+        }
+        else{
+            textBox.appendText("Cannot get UDI if app has been loaded to device. Please reset the TKey first! \n");
+        }
     }
 
     @FXML
-    private void button5Clicked() {
-        textBox.setText("Button 5 clicked!");
-    }
-
-    @FXML
-    private void button6Clicked() {
-        try{
+    private void button6Clicked() throws Exception {
+        if(!hasFile){
+            textBox.appendText("No file specified! \n");
+        } else if (!connected) {
+            textBox.appendText("TKey connection not found! \n");
+        } else{
             Main.loadApp();
-        }catch (Exception e){
-            textBox.appendText("Loading app failed!" + "\n");
+            textBox.appendText("App Loaded!" + "\n");
+            locked = true;
         }
-        textBox.setText("Button 6 clicked!");
     }
 }
