@@ -42,8 +42,9 @@ https://spdx.org/licenses/
 
 ## Usage
 1. Clone this repo.
-2. Add the Tkey library jar in your IDE of choice.
-3. Run the app.
+2. Download and add the [jSerialComm library](https://github.com/Fazecast/jSerialComm) to the project.
+3. Download and add the Tkey library jar to the project.
+4. Run the app.
 
 ## Functionality
 This program allows you to:
