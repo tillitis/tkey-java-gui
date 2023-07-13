@@ -1,11 +1,48 @@
 # TKeyJGUI
-This is a work in progress GUI application which uses the [Tkey-jClient library](https://github.com/iknek/Tkey-jClient) to communicate with a [Tillitis Tkey](tillitis.se).
+This is a work in progress GUI application which uses the [tkey-javaclient library](https://github.com/tillitis/tkey-javaclient) to communicate with a [Tillitis Tkey](tillitis.se).
 
-Serial USB communication is achieved through the use of the external library [jSerialComm](https://github.com/Fazecast/jSerialComm). The library jar is already placed in the root of this library folder.
+## Licenses and SPDX tags
+
+Unless otherwise noted, the project sources are licensed under the
+terms and conditions of the "GNU General Public License v2.0 only":
+
+> Copyright Tillitis AB.
+>
+> These programs are free software: you can redistribute it and/or
+> modify it under the terms of the GNU General Public License as
+> published by the Free Software Foundation, version 2 only.
+>
+> These programs are distributed in the hope that they will be useful,
+> but WITHOUT ANY WARRANTY; without even the implied warranty of
+> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+> General Public License for more details.
+
+> You should have received a copy of the GNU General Public License
+> along with this program. If not, see:
+>
+> https://www.gnu.org/licenses
+
+See [LICENSE](LICENSE) for the full GPLv2-only license text.
+
+External source code we have imported are isolated in their own
+directories. They may be released under other licenses. This is noted
+with a similar `LICENSE` file in every directory containing imported
+sources.
+
+The project uses single-line references to Unique License Identifiers
+as defined by the Linux Foundation's [SPDX project](https://spdx.org/)
+on its own source files, but not necessarily imported files. The line
+in each individual source file identifies the license applicable to
+that file.
+
+The current set of valid, predefined SPDX identifiers can be found on
+the SPDX License List at:
+
+https://spdx.org/licenses/
 
 ## Usage
 1. Clone this repo.
-2. Add the two (included) library jars as libraries in your IDE of choice.
+2. Add the Tkey library jar in your IDE of choice.
 3. Run the app.
 
 ## Functionality
