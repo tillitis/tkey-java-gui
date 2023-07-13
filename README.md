@@ -43,8 +43,9 @@ https://spdx.org/licenses/
 ## Usage
 1. Clone this repo.
 2. Download and add the [jSerialComm library](https://github.com/Fazecast/jSerialComm) to the project.
-3. Download and add the Tkey library jar to the project.
-4. Run the app.
+3. Download and add the TKey library jar to the project.
+4. Download and add JavaFX jar to the project.
+5. Run the app.
 
 ## Functionality
 This program allows you to:
@@ -54,7 +55,7 @@ This program allows you to:
 4. Load an app to the TKey.
 
 ## To Do
-1. Fix the Tkey-jClient library to allow for reconnection after TKey is reset, without re-starting the app.
+1. Fix the jClient library to allow for reconnection after TKey is reset, without re-starting the app.
 2. 'Console' improvements, potentially including the possibility to generate and send frames to the TKey.
 3. Code cleanup.
 4. Documentation.
