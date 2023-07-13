@@ -1,5 +1,5 @@
 # TKeyJGUI
-This is a work in progress GUI application which uses the [tkey-javaclient library](https://github.com/tillitis/tkey-javaclient) to communicate with a [Tillitis Tkey](tillitis.se).
+This is a work in progress GUI application which uses the [tkey-javaclient library](https://github.com/tillitis/tkey-javaclient) to communicate with a [Tillitis TKey](https://www.tillitis.se).
 
 ## Licenses and SPDX tags
 
@@ -42,8 +42,9 @@ https://spdx.org/licenses/
 
 ## Usage
 1. Clone this repo.
-2. Add the Tkey library jar in your IDE of choice.
-3. Run the app.
+2. Download and add the [jSerialComm library](https://github.com/Fazecast/jSerialComm) to the project.
+3. Download and add the Tkey library jar to the project.
+4. Run the app.
 
 ## Functionality
 This program allows you to:
