@@ -1,5 +1,5 @@
 # TKeyJGUI
-This is a work in progress GUI application which uses the [tkey-javaclient library](https://github.com/tillitis/tkey-javaclient) to communicate with a [Tillitis Tkey](tillitis.se).
+This is a work in progress GUI application which uses the [tkey-javaclient library](https://github.com/tillitis/tkey-javaclient) to communicate with a [Tillitis TKey](https://www.tillitis.se).
 
 ## Licenses and SPDX tags
 
