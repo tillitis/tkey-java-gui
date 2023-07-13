@@ -1,5 +1,10 @@
-import com.knek.TkeyClient;
-import com.knek.UDI;
+/*
+ * Copyright (C) 2022, 2023 - Tillitis AB
+ * SPDX-License-Identifier: GPL-2.0-only
+ */
+
+import com.tillitis.TkeyClient;
+import com.tillitis.UDI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
