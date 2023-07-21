@@ -1,7 +1,7 @@
-/**
+/*
  * Copyright (C) 2022, 2023 - Tillitis AB
  * SPDX-License-Identifier: GPL-2.0-only
-**/
+ */
 .button {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 20;
@@ -37,4 +37,12 @@
 
 .text-area .scroll-pane .content{
     -fx-background-color: transparent;
+}
+
+.buttonBar {
+    -fx-height: '20px';
+    -fx-pref-width: 580px;
+    -fx-background-color: #434343;
+    -fx-alignment: 'CENTER';
+    -fx-spacing: '10px';  /* e.g., 10px */
 }

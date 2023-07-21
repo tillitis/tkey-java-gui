@@ -2,7 +2,6 @@
  * Copyright (C) 2022, 2023 - Tillitis AB
  * SPDX-License-Identifier: GPL-2.0-only
  */
-
 import com.tillitis.TkeyClient;
 import com.tillitis.UDI;
 import javafx.fxml.FXML;
@@ -10,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+
 import java.io.File;
 
 public class Controller {
@@ -24,7 +24,7 @@ public class Controller {
     private Boolean locked = false;
 
     @FXML
-    private void button1Clicked() throws Exception {
+    private void button1Clicked() {
         if(connected && !TkeyClient.getHasCon()){
             System.out.println(TkeyClient.getHasCon());
             connected = false;
@@ -42,7 +42,7 @@ public class Controller {
             TkeyClient.close();
             connected = false;
             System.out.println(TkeyClient.getHasCon());
-            TkeyClient.reconnect();
+            //TkeyClient.reconnect();
         }
     }
 
@@ -84,8 +84,8 @@ public class Controller {
     private void button4Clicked() throws Exception {
         if(!locked && connected){
             UDI udi = TkeyClient.getUDI();
-            textBox.appendText("TKey UDI: 0x0" + Integer.toHexString(udi.vendorID()) + "0" + Integer.toHexString(udi.udi()[0]) + "00000" + Integer.toHexString(udi.serial()) + "\n");
-            textBox.appendText("Vendor ID: " + Integer.toHexString(udi.vendorID()) + " Product ID: " + udi.productID() + " Product Rev: " + udi.productRevision() + "\n");
+            textBox.appendText("TKey UDI: 0x0" + Integer.toHexString(udi.getVendorID()) + "0" + Integer.toHexString(udi.getUdi()[0]) + "00000" + Integer.toHexString(udi.getSerial()) + "\n");
+            textBox.appendText("Vendor ID: " + Integer.toHexString(udi.getVendorID()) + " Product ID: " + udi.getProductID() + " Product Rev: " + udi.getProductRevision() + "\n");
             TkeyClient.clearIOFull();
         } else if(!connected){
             textBox.appendText("TKey connection not found! \n");
@@ -94,7 +94,6 @@ public class Controller {
             textBox.appendText("Cannot get UDI if app has been loaded to device. Please reset the TKey first! \n");
         }
     }
-
     @FXML
     private void button6Clicked() throws Exception {
         if(!hasFile){
