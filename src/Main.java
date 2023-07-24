@@ -2,8 +2,8 @@
  * Copyright (C) 2022, 2023 - Tillitis AB
  * SPDX-License-Identifier: GPL-2.0-only
  */
-import com.tillitis.TkeyClient;
 
+import com.tillitis.TkeyClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,9 +16,10 @@ public class Main extends Application {
     private static String filePath;
 
     TkeyClient tkeyClient;
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/start.fxml"));
         primaryStage.setTitle("TKey GUI Client");
         primaryStage.getIcons().add(new Image("file:ant.png"));
         Scene scene = new Scene(root, 600, 600);
@@ -36,7 +37,7 @@ public class Main extends Application {
     }
 
     public static Parent loadFirstView() throws Exception {
-        return FXMLLoader.load(Main.class.getResource("main.fxml"));
+        return FXMLLoader.load(Main.class.getResource("start.fxml"));
     }
 
     public static Parent loadSecondView() throws Exception {
@@ -46,4 +47,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

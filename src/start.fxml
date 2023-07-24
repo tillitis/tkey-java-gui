@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 <VBox prefHeight="600" prefWidth="600" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="Controller" stylesheets="@styles.css">
+      fx:controller="GeneralController" stylesheets="@styles.css">
 
     <fx:include source="button_bar.fxml"/>
 
