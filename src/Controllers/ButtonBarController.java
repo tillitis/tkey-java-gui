@@ -1,3 +1,4 @@
+package Controllers;
 /*
  * Copyright (C) 2022, 2023 - Tillitis AB
  * SPDX-License-Identifier: GPL-2.0-only
@@ -5,9 +6,9 @@
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import main.Main;
 
 public class ButtonBarController {
-
     @FXML
     private Button menu1;
     @FXML

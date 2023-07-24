@@ -1,4 +1,4 @@
-/*
+package main;/*
  * Copyright (C) 2022, 2023 - Tillitis AB
  * SPDX-License-Identifier: GPL-2.0-only
  */
@@ -25,7 +25,7 @@ public class Signer {
     private static final FwCmd rspGetNameVersion  = new FwCmd(0x0a, "rspGetNameVersion", CmdLen32, (byte) 3);
     private static final FwCmd cmdSignPhData = new FwCmd(0x0b, "cmdSignPhData", CmdLen128, (byte) 3);
     private static final FwCmd rspSignPhData = new FwCmd(0x0c, "rspSignPhnData", CmdLen4, (byte) 3);
-    private static TkeyClient tk1;
+    private static TkeyClient tk1 = new TkeyClient();
     private static final byte statusOK = 0x00;
 
     static SerialConnHandler handler = null;
@@ -66,7 +66,7 @@ public class Signer {
         if(data[1] != statusOK){
             System.out.println("Status not ok");
         }
-        return Arrays.copyOfRange(data,2,64);
+        return Arrays.copyOfRange(data,2,66);
     }
 
     /**

@@ -2,6 +2,9 @@
  * Copyright (C) 2022, 2023 - Tillitis AB
  * SPDX-License-Identifier: GPL-2.0-only
  */
+
+package Controllers;
+
 import com.tillitis.TkeyClient;
 import com.tillitis.UDI;
 import javafx.fxml.FXML;
@@ -9,10 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+import main.Main;
 
 import java.io.File;
 
-public class GeneralController {
+public class ToolsController {
 
     @FXML
     private Button button3;
@@ -20,30 +24,16 @@ public class GeneralController {
     private TextArea textBox;
     private String name = "";
     private Boolean hasFile = false;
-    private Boolean connected = false;
-    private Boolean locked = false;
+    private Boolean connected = Main.connected;
+    private CommonController controller;
+
+    public ToolsController() {
+        controller = Main.commonController;
+    }
 
     @FXML
     private void button1Clicked() {
-        if(connected && !TkeyClient.getHasCon()){
-            System.out.println(TkeyClient.getHasCon());
-            connected = false;
-        }
-        try{
-            if(!connected){
-                TkeyClient.connect();
-                textBox.appendText("Connected to the TKey successfully!" + "\n");
-                connected = true;
-            }else{
-                textBox.appendText("Already connected to the Tkey!" + "\n");
-            }
-        }catch (Exception e){
-            textBox.appendText("Failed to connect!" + "\n");
-            TkeyClient.close();
-            connected = false;
-            System.out.println(TkeyClient.getHasCon());
-            //TkeyClient.reconnect();
-        }
+        connected = controller.commonConnect(textBox);
     }
 
     /**
@@ -54,7 +44,7 @@ public class GeneralController {
     private void button2Clicked() throws Exception {
         if(!name.equals("")){
                 textBox.appendText("TKey name and version: " + name + "\n");
-        }else if(!locked && connected){
+        }else if(!controller.getLocked() && connected){
             name = TkeyClient.getNameVersion();
             textBox.appendText("TKey name and version: " + name + "\n");
         }else if(!connected){
@@ -82,7 +72,7 @@ public class GeneralController {
 
     @FXML
     private void button4Clicked() throws Exception {
-        if(!locked && connected){
+        if(!controller.getLocked() && connected){
             UDI udi = TkeyClient.getUDI();
             textBox.appendText("TKey UDI: 0x0" + Integer.toHexString(udi.getVendorID()) + "0" + Integer.toHexString(udi.getUdi()[0]) + "00000" + Integer.toHexString(udi.getSerial()) + "\n");
             textBox.appendText("Vendor ID: " + Integer.toHexString(udi.getVendorID()) + " Product ID: " + udi.getProductID() + " Product Rev: " + udi.getProductRevision() + "\n");
@@ -95,15 +85,7 @@ public class GeneralController {
         }
     }
     @FXML
-    private void button6Clicked() throws Exception {
-        if(!hasFile){
-            textBox.appendText("No file specified! \n");
-        } else if (!connected) {
-            textBox.appendText("TKey connection not found! \n");
-        } else{
-            Main.loadApp();
-            textBox.appendText("App Loaded!" + "\n");
-            locked = true;
-        }
+    private void button6Clicked(){
+        controller.commonLoadApp(hasFile,textBox);
     }
 }
