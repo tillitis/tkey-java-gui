@@ -1,5 +1,5 @@
 # TKeyJGUI
-This is a work in progress GUI application which uses the [tkey-javaclient library](https://github.com/tillitis/tkey-javaclient) to communicate with a [Tillitis TKey](https://www.tillitis.se).
+This is a GUI application which uses the [tkey-javaclient library](https://github.com/tillitis/tkey-javaclient) to communicate with a [Tillitis TKey](https://www.tillitis.se). It allows for both simple operations such as getting the device UDI and name, loading apps, in addition to being a GUI tool for signing files and getting the TKey's public key.
 
 ## Licenses and SPDX tags
 
@@ -51,6 +51,7 @@ This program allows you to:
 2. Get the TKey name & version
 3. Get the TKey UDI and its associated information
 4. Load an app to the TKey.
+5. Sign files and get TKey pub key.
 
 ## To Do
 1. Fix the jClient library to allow for reconnection after TKey is reset, without re-starting the app.
@@ -58,3 +59,5 @@ This program allows you to:
 3. Code cleanup.
 4. Documentation.
 5. General GUI improvements & testing.
+6. ED25519 verification of signatures. 
+7. Implement optional USS when signing.
