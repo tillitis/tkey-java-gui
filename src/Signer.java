@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2022, 2023 - Tillitis AB
+ * SPDX-License-Identifier: GPL-2.0-only
+ */
+
 import com.tillitis.FwCmd;
 import com.tillitis.SerialConnHandler;
 import com.tillitis.TkeyClient;

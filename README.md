@@ -42,10 +42,8 @@ https://spdx.org/licenses/
 
 ## Usage
 1. Clone this repo.
-2. Download and add the [jSerialComm library](https://github.com/Fazecast/jSerialComm) to the project.
-3. Download and add the TKey library jar to the project.
-4. Download and add JavaFX jar to the project.
-5. Run the app.
+2. Download and add the TKey Java library jar to the project.
+3. Run the app using ./gradlew run.
 
 ## Functionality
 This program allows you to:

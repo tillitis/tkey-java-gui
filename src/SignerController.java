@@ -8,7 +8,10 @@ import javafx.stage.Window;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-
+/*
+ * Copyright (C) 2022, 2023 - Tillitis AB
+ * SPDX-License-Identifier: GPL-2.0-only
+ */
 public class SignerController {
 
     private Boolean connected = false;
