@@ -6,6 +6,9 @@ package main;/*
 import com.tillitis.FwCmd;
 import com.tillitis.SerialConnHandler;
 import com.tillitis.TkeyClient;
+import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
+import org.bouncycastle.crypto.signers.Ed25519Signer;
 
 import java.util.Arrays;
 
@@ -55,7 +58,7 @@ public class Signer {
         clearIOFull();
         Thread.sleep(200);
         byte[] data = getData(cmdGetPubkey,rspGetPubkey);
-        return Arrays.copyOfRange(data,1,32);
+        return Arrays.copyOfRange(data,1,33);
     }
 
     /**
@@ -83,7 +86,24 @@ public class Signer {
         }
         if(offset > in.length) throw new Exception("Transmitted more than expected");
 
-        return getSig();
+        Thread.sleep(100);
+        clearIOFull();
+        byte[] sig = getSig();
+        Thread.sleep(100);
+        clearIOFull();
+        if(!verify(getPubKey(),in,sig)){
+            throw new Exception("Verification Failed!");
+        }
+
+        return sig;
+    }
+
+    public static boolean verify(byte[] publicKey, byte[] message, byte[] signature) {
+        AsymmetricKeyParameter pkParam = new Ed25519PublicKeyParameters(publicKey, 0);
+        Ed25519Signer signer = new Ed25519Signer();
+        signer.init(false, pkParam);
+        signer.update(message, 0, message.length);
+        return signer.verifySignature(signature);
     }
 
     /**
@@ -103,6 +123,7 @@ public class Signer {
         if(rx[1] != statusOK){
             System.out.println("Status not ok");
         }
+
     }
 
     /**
@@ -155,3 +176,4 @@ public class Signer {
         return getSig();
     }
 }
+

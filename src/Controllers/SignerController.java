@@ -92,7 +92,7 @@ public class SignerController {
      * Sign file/do sign (returns ed25519 sig).
      */
     @FXML
-    public void button5Clicked() throws Exception {
+    public void button5Clicked(){
         FileChooser fileChooser = new FileChooser();
 
         Window stage = button.getScene().getWindow();

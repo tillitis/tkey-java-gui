@@ -59,5 +59,4 @@ This program allows you to:
 3. Code cleanup.
 4. Documentation.
 5. General GUI improvements & testing.
-6. ED25519 verification of signatures. 
-7. Implement optional USS when signing.
+6. Implement optional USS when signing.
