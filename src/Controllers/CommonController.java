@@ -9,12 +9,18 @@ import main.Main;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Controller for buttons and behavior shared accross both views.
+ */
 public class CommonController {
     private static boolean connected = false;
     private static boolean locked = false;
 
     public CommonController() {}
 
+    /**
+     * For connecting to a TKey.
+     */
     public boolean commonConnect(TextArea textBox) {
         if (connected && !TkeyClient.getHasCon()) {
             System.out.println(TkeyClient.getHasCon());
@@ -38,6 +44,9 @@ public class CommonController {
         return connected;
     }
 
+    /**
+     * For loading an app
+     */
     public void commonLoadApp(boolean hasFile, TextArea textBox) {
         if (!hasFile) {
             textBox.appendText("No file specified! \n");

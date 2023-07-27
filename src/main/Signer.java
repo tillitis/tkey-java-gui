@@ -13,6 +13,9 @@ import java.util.Arrays;
 import static com.tillitis.CmdLen.*;
 import static com.tillitis.TkeyClient.*;
 
+/**
+ * Logic/backend for signing actions using the TKey.
+ */
 public class Signer {
     private static final FwCmd cmdGetPubkey       = new FwCmd(0x01, "cmdGetPubkey", CmdLen1, (byte) 3);
     private static final FwCmd rspGetPubkey       = new FwCmd(0x02, "rspGetPubkey", CmdLen128, (byte) 3);

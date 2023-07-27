@@ -16,6 +16,9 @@ import main.Signer;
 import java.io.File;
 import java.nio.file.Files;
 
+/**
+ * Controller for signing tools/actions.
+ */
 public class SignerController {
 
     private Boolean connected = Main.connected;

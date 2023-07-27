@@ -16,6 +16,9 @@ import main.Main;
 
 import java.io.File;
 
+/**
+ * Controller for general Tkey tools.
+ */
 public class ToolsController {
 
     @FXML
@@ -55,6 +58,9 @@ public class ToolsController {
         }
     }
 
+    /**
+     * Opens Windows file browser.
+     */
     @FXML
     private void button3Clicked() {
         FileChooser fileChooser = new FileChooser();
@@ -70,7 +76,10 @@ public class ToolsController {
         }
     }
 
-    @FXML
+    /**
+     * Gets TKey UDI
+     */
+ @FXML
     private void button4Clicked() throws Exception {
         if(!controller.getLocked() && connected){
             UDI udi = TkeyClient.getUDI();
@@ -84,6 +93,10 @@ public class ToolsController {
             textBox.appendText("Cannot get UDI if app has been loaded to device. Please reset the TKey first! \n");
         }
     }
+
+    /**
+     * Loads retrieved (button4 action) app.
+     */
     @FXML
     private void button6Clicked(){
         controller.commonLoadApp(hasFile,textBox);

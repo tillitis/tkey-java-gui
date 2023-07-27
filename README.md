@@ -57,6 +57,4 @@ This program allows you to:
 1. Fix the jClient library to allow for reconnection after TKey is reset, without re-starting the app.
 2. 'Console' improvements, potentially including the possibility to generate and send frames to the TKey.
 3. Code cleanup.
-4. Documentation.
-5. General GUI improvements & testing.
 6. Implement optional USS when signing.

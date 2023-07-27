@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import main.Main;
 
+/**
+ * Controller for switching between signer and tools views.
+ */
 public class ButtonBarController {
     @FXML
     private Button menu1;
