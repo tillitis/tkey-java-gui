@@ -9,9 +9,7 @@ import com.tillitis.TkeyClient;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.signers.Ed25519Signer;
-
 import java.util.Arrays;
-
 import static com.tillitis.CmdLen.*;
 import static com.tillitis.TkeyClient.*;
 
