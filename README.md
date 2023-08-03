@@ -51,10 +51,8 @@ This program allows you to:
 2. Get the TKey name & version
 3. Get the TKey UDI and its associated information
 4. Load an app to the TKey.
-5. Sign files and get TKey pub key.
+5. Sign files and get TKey public key.
 
 ## To Do
 1. Fix the jClient library to allow for reconnection after TKey is reset, without re-starting the app.
 2. 'Console' improvements, potentially including the possibility to generate and send frames to the TKey.
-3. Code cleanup.
-6. Implement optional USS when signing.
