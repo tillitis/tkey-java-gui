@@ -3,16 +3,11 @@
  * SPDX-License-Identifier: GPL-2.0-only
  */
 package Controllers;
-
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
-import main.Main;
-import main.Signer;
-
+import javafx.scene.control.*;
+import javafx.stage.*;
+import main.*;
 import java.io.File;
 import java.nio.file.Files;
 
@@ -69,7 +64,9 @@ public class SignerController {
     private void button3Clicked(){
         Main.setFilePath("signer.bin");
         try{
-            commonController.commonLoadApp(true,textBox);
+            USSPopup popup = new USSPopup();
+            byte[] result = popup.show();
+            commonController.commonLoadApp(true,textBox,result);
             isLoaded = true;
         }catch(Exception e){
             isLoaded = false;
@@ -131,6 +128,7 @@ public class SignerController {
             new Thread(task).start();
         }
     }
+
 
     /**
      * Do Sign - signs file

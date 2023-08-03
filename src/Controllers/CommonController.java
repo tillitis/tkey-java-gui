@@ -47,7 +47,7 @@ public class CommonController {
     /**
      * For loading an app
      */
-    public void commonLoadApp(boolean hasFile, TextArea textBox) {
+    public void commonLoadApp(boolean hasFile, TextArea textBox, byte[] uss) {
         if (!hasFile) {
             textBox.appendText("No file specified! \n");
         } else if (!connected) {
@@ -58,7 +58,7 @@ public class CommonController {
             Task<Boolean> task = new Task<>() {
                 @Override
                 protected Boolean call() throws Exception {
-                    Main.loadApp();
+                    Main.loadApp(uss);
                     return true;
                 }
             };

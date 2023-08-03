@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * Copyright (C) 2022, 2023 - Tillitis AB
+ * SPDX-License-Identifier: GPL-2.0-only
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<VBox prefHeight="600" prefWidth="600" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignerController">
+    <fx:include source="button_bar.fxml" />
+
+    <VBox alignment="CENTER" prefHeight="0.40" VBox.vgrow="ALWAYS">
+        <HBox alignment="CENTER" spacing="10">
+            <Button minHeight="50.0" minWidth="50.0" onAction="#button1Clicked" stylesheets="@../styles.css" text="Connect" textAlignment="CENTER">
+                <padding>
+                    <Insets left="20.0" right="20.0" />
+                </padding>
+            </Button>
+            <Button minHeight="50.0" minWidth="50.0" onAction="#button2Clicked" stylesheets="@../styles.css" text="Get App Name" textAlignment="CENTER">
+                <padding>
+                    <Insets left="20.0" right="20.0" />
+                </padding>
+            </Button>
+            <Button fx:id="button3" minHeight="50.0" minWidth="50.0" onAction="#button3Clicked" stylesheets="@../styles.css" text="Load App" textAlignment="CENTER">
+                <padding>
+                    <Insets left="20.0" right="20.0" />
+                </padding>
+            </Button>
+            <VBox.margin>
+                <Insets bottom="20.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Button minHeight="50.0" minWidth="50.0" onAction="#button4Clicked" stylesheets="@../styles.css" text="Get Public Key">
+                <padding>
+                    <Insets left="20.0" right="20.0" />
+                </padding>
+            </Button>
+            <Button fx:id="button" minHeight="50.0" minWidth="50.0" onAction="#button5Clicked" stylesheets="@../styles.css" text="Sign File">
+                <padding>
+                    <Insets left="20.0" right="20.0" />
+                </padding>
+            </Button>
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+        </HBox>
+        <VBox.margin>
+            <Insets top="30.0" />
+        </VBox.margin>
+    </VBox>
+    <VBox prefHeight="0.10" VBox.vgrow="ALWAYS" />
+    <VBox prefHeight="0.40" VBox.vgrow="ALWAYS">
+        <TextArea fx:id="textBox" editable="false" minHeight="300.0" minWidth="560.0" prefHeight="300.0" prefWidth="560.0" stylesheets="@../styles.css">
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </VBox.margin>
+            <styleClass>
+                <String fx:value="viewport" />
+                <String fx:value="text-area" />
+                <String fx:value="content" />
+            </styleClass>
+        </TextArea>
+    </VBox>
+</VBox>

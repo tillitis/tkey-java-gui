@@ -7,8 +7,7 @@ import Controllers.*;
 import com.tillitis.TkeyClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -28,15 +27,14 @@ public class Main extends Application {
         primaryStage.setTitle("TKey GUI Client");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
     public static void setFilePath(String path){
         filePath = path;
     }
 
-    public static void loadApp() throws Exception {
-        TkeyClient.loadAppFromFile(filePath);
+    public static void loadApp(byte[] uss) throws Exception {
+        TkeyClient.loadAppFromFile(filePath,uss);
     }
 
     public static Parent loadFirstView() throws Exception {

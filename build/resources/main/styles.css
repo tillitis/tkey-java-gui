@@ -1,0 +1,71 @@
+/*
+ * Copyright (C) 2022, 2023 - Tillitis AB
+ * SPDX-License-Identifier: GPL-2.0-only
+ */
+.button {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20;
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 15;
+    -fx-text-fill: #000000;
+    -fx-pref-width: 150;
+    -fx-pref-height: 55;
+}
+
+.button:pressed {
+    -fx-background-color: #b5b5b5;
+}
+
+.text-area{
+    -fx-pref-width: 580;
+    -fx-pref-height: 600;
+    -fx-background-color: #434343;
+    -fx-text-fill: #FFFFFF; /* white text */
+    -fx-border-radius: 20; /* rounded border */
+    -fx-background-radius: 20;
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 15;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+.buttonBar {
+    -fx-height: '20px';
+    -fx-pref-width: 580px;
+    -fx-background-color: #033de5;
+    -fx-alignment: 'CENTER';
+    -fx-spacing: '10px';
+}
+
+.buttonSmall {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20;
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 15;
+    -fx-text-fill: #000000;
+    -fx-pref-width: 100;
+    -fx-pref-height: 25;
+}
+
+.textSmall{
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 12;
+}

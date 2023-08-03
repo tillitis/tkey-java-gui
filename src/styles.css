@@ -48,5 +48,24 @@
     -fx-pref-width: 580px;
     -fx-background-color: #033de5;
     -fx-alignment: 'CENTER';
-    -fx-spacing: '10px';  /* e.g., 10px */
+    -fx-spacing: '10px';
+}
+
+.buttonSmall {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20;
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 15;
+    -fx-text-fill: #000000;
+    -fx-pref-width: 100;
+    -fx-pref-height: 25;
+}
+
+.textSmall{
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 12;
 }

@@ -4,17 +4,13 @@
  */
 
 package Controllers;
-
-import com.tillitis.TkeyClient;
-import com.tillitis.UDI;
+import com.tillitis.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
-import main.Main;
-
+import javafx.scene.control.*;
+import javafx.stage.*;
+import main.*;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Controller for general Tkey tools.
@@ -98,7 +94,9 @@ public class ToolsController {
      * Loads retrieved (button4 action) app.
      */
     @FXML
-    private void button6Clicked(){
-        controller.commonLoadApp(hasFile,textBox);
+    private void button6Clicked() throws IOException {
+        USSPopup popup = new USSPopup();
+        byte[] result = popup.show();
+        controller.commonLoadApp(hasFile,textBox,result);
     }
 }

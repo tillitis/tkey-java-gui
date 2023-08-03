@@ -2,12 +2,8 @@ package main;/*
  * Copyright (C) 2022, 2023 - Tillitis AB
  * SPDX-License-Identifier: GPL-2.0-only
  */
-
-import com.tillitis.FwCmd;
-import com.tillitis.SerialConnHandler;
-import com.tillitis.TkeyClient;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
+import com.tillitis.*;
+import org.bouncycastle.crypto.params.*;
 import org.bouncycastle.crypto.signers.Ed25519Signer;
 import java.util.Arrays;
 import static com.tillitis.CmdLen.*;
