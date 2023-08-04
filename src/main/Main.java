@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static String filePath;
-
     public static boolean connected;
     public static CommonController commonController;
     @Override

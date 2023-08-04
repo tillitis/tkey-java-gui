@@ -15,7 +15,6 @@ import java.nio.file.Files;
  * Controller for signing tools/actions.
  */
 public class SignerController {
-
     private Boolean connected = Main.connected;
     @FXML
     private TextArea textBox;
@@ -33,7 +32,7 @@ public class SignerController {
      * Connect to TKey
      */
     @FXML
-    private void button1Clicked() {
+    private void connectButton() {
         connected = commonController.commonConnect(textBox);
     }
 
@@ -41,7 +40,7 @@ public class SignerController {
      * Get Name
      */
     @FXML
-    private void button2Clicked() throws Exception {
+    private void getAppNameButton() throws Exception {
         if(!name.equals("")){
             textBox.appendText("App name: " + name + "\n");
         }else if(isLoaded && connected){
@@ -61,7 +60,7 @@ public class SignerController {
      * Load app (signer)
      */
     @FXML
-    private void button3Clicked(){
+    private void loadSignerButton(){
         Main.setFilePath("signer.bin");
         try{
             USSPopup popup = new USSPopup();
@@ -75,10 +74,9 @@ public class SignerController {
 
     /**
      * Get Public key
-     * @throws Exception
      */
     @FXML
-    public void button4Clicked() throws Exception{
+    public void getPubKeyButton() throws Exception{
         if(connected && isLoaded){
             String pubkey = Signer.bytesToHex(Signer.getPubKey());
             textBox.appendText("Pub Key: " + pubkey + " \n");
@@ -92,7 +90,7 @@ public class SignerController {
      * Sign file/do sign (returns ed25519 sig).
      */
     @FXML
-    public void button5Clicked(){
+    public void signFileButton(){
         FileChooser fileChooser = new FileChooser();
 
         Window stage = button.getScene().getWindow();
@@ -126,27 +124,6 @@ public class SignerController {
             });
 
             new Thread(task).start();
-        }
-    }
-
-
-    /**
-     * Do Sign - signs file
-     * @throws Exception
-     */
-    @FXML
-    public void button6Clicked() throws Exception {
-        FileChooser fileChooser = new FileChooser();
-
-        Window stage = button.getScene().getWindow();
-        File file = fileChooser.showOpenDialog(stage);
-
-        if (file != null) {
-            String filePath = file.getAbsolutePath();
-            byte[] fileBytes = Files.readAllBytes((new File(filePath)).toPath());
-            byte[] sig = Signer.sign(fileBytes);
-            textBox.appendText("Click 'Load App' to load it to the TKey \n");
-
         }
     }
 }
